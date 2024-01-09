@@ -11,13 +11,13 @@ const bookSchema = mongoose.Schema(
       required: true,
     },
     publishYear: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
   {
-    timeStamps: true,
+    timestamps: true,
   }
 );
 
-export const Book = mongoose.model("Cat", bookSchema);
+export const Book = mongoose.model("Book", bookSchema);
