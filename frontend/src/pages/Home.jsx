@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { MdOutlineAddBox } from "react-icons/md";
 import BooksCard from "../components/home/BooksCard";
 import BooksTable from "../components/home/BooksTable";
-import Navbar from "../components/home/Navbar";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -39,12 +38,12 @@ const Home = () => {
             </div>
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box space-y-2">
               <li>
-                <button className="btn btn-outline text-center" onClick={() => setShowType("table")}>
+                <button className="btn btn-outline" onClick={() => setShowType("table")}>
                   Table
                 </button>
               </li>
               <li>
-                <button className="btn btn-outline text-center" onClick={() => setShowType("card")}>
+                <button className="btn btn-outline" onClick={() => setShowType("card")}>
                   Card
                 </button>
               </li>
@@ -52,12 +51,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8">Books List</h1>
-        <Link to="/books/create">
+      <button className="btn m-5">
+        <Link className="flex items-center" to="/books/create">
+          <p>Add Book</p>
           <MdOutlineAddBox className="text-primary text-4xl"></MdOutlineAddBox>
         </Link>
-      </div>
+      </button>
       {loading ? <Spinner /> : showType === "table" ? <BooksTable books={books} /> : <BooksCard books={books} />}
     </div>
   );

@@ -6,26 +6,27 @@ import { CiMenuKebab } from "react-icons/ci";
 
 const BooksTable = ({ books }) => {
   return (
-    <table className="w-full border-separate border-spacing-2">
+    <table className="table">
       <thead>
         <tr>
-          <th className="border border-slate-600 rounded-md">No.</th>
-          <th className="border border-slate-600 rounded-md">Title</th>
-          <th className="border border-slate-600 rounded-md max-md:hidden">Author</th>
-          <th className="border border-slate-600 rounded-md max-md:hidden">Publish Year</th>
+          <th className="text-center">No.</th>
+          <th className="text-center">Title</th>
+          <th className="text-center max-md:hidden">Author</th>
+          <th className="text-center max-md:hidden">Publish Year</th>
+          <th className="text-center">Menu</th>
         </tr>
       </thead>
       <tbody>
         {books.map((book, index) => (
           <tr key={book._id} className="h-8">
-            <td className="border border-slate-600 rounded-md text-center">{index + 1}</td>
-            <td className="border border-slate-600 rounded-md text-center">{book.title}</td>
-            <td className="border border-slate-600 rounded-md text-center max-md:hidden">{book.author}</td>
-            <td className="border border-slate-600 rounded-md text-center max-md:hidden">{book.publishYear}</td>
+            <td className="text-center">{index + 1}</td>
+            <td className="text-center">{book.title}</td>
+            <td className="text-center max-md:hidden">{book.author}</td>
+            <td className="text-center max-md:hidden">{book.publishYear}</td>
             <td className="text-center">
               <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="btn btn-outline">
-                  <CiMenuKebab />
+                <div tabIndex={0} role="button" className="btn">
+                  <CiMenuKebab className="text-primary" />
                 </div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box">
                   <li>
